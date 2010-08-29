@@ -99,24 +99,11 @@ vmap < <gv
 vmap <Tab> >gv
 vmap <S-Tab> <gv
 
-" Alternate  ESC on insert mode
-imap jj <Esc>
-
 " Map Ctrl-Movement Keys to window switching
 nmap <C-k> <C-w><Up>
 nmap <C-j> <C-w><Down>
 nmap <C-l> <C-w><Right>
 nmap <C-h> <C-w><Left>
-
-" Switch to next and previous files
-nmap <C-Tab> :bnext<CR>
-nmap <C-S-Tab> :bprevious<CR>
-
-" Map system clipboard to Cmd+C (copy) and Cmd+V (paste)
-nmap <D-c> "+y
-nmap <D-v> "+p
-vmap <D-c> "+y
-vmap <D-v> "+p
 
 " Auto load vimrc and gvimrc every time it changes
 autocmd BufWritePost .vimrc source $MYVIMRC
@@ -125,16 +112,6 @@ autocmd BufWritePost .gvimrc source $MYGVIMRC
 " Auto create tags file
 set tags=./tags;
 nmap <Leader>g :!/usr/local/bin/ctags -R --exclude=.git --exclude=log --exclude=public/assets --exclude=public/vendor *<CR>
-
-" Edit another file in the same directory as the current file
-" uses expression to extract path from current file's path
-map <Leader>e :e <C-R>=expand("%:p:h") . '/'<CR>
-map <Leader>s :split <C-R>=expand("%:p:h") . '/'<CR>
-map <Leader>v :vnew <C-R>=expand("%:p:h") . '/'<CR>
-
-" Resize windows
-map <M-]> :set lines=61 columns=233
-map <M-[> :set lines=45 columns=150
 
 " Annoyances
 cmap W w
@@ -145,7 +122,7 @@ set listchars=tab:▸\ ,eol:¬
 set list
 
 " Strip trailing white spaces before file is saved
-function StripTrailingWhiteSpaces()
+function! StripTrailingWhiteSpaces()
   " Store the current position
   let _s=@/
   let l = line(".")
