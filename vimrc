@@ -56,7 +56,7 @@ set spell                         " Display spelling errors
 " Useful status information at bottom of screen
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{rvm#statusline()}\ %{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 
-colorscheme railscasts            " set color scheme
+colorscheme dante                 " set color scheme
 
 " Mappings
 
